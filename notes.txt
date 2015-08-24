@@ -103,3 +103,20 @@ Qiita (canonically pronounced “cheetah“) is a new, free, open source platfor
 standard file formats
 james webb space telescope callibration pipeline
 * lots of corrolaries between the sciences; De Brujin graphs; gene finding + signal processing; Text search & sequence similarity
+
+
+
+
+do = HTML('''<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+  $('div.input').hide();
+   } else {
+    $('div.input').show();
+     }
+      code_show = !code_show
+      } 
+      $( document ).ready(code_toggle);
+      </script>
+      <a href="javascript:code_toggle()">reveal</a>.''')
