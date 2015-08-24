@@ -1,0 +1,105 @@
+
+
+BLAST
+====
+
+
+What it is
+
+Query  10141  TTCGAGAGTGAAGGAGTTCTGTAATTACCAACAAAAATACC--AAAGAGGCTATTGAAGT  10198
+              ||||||||||||||||||||||||| ||||||||||| ||   ||||||||||||| |||
+Sbjct  9304   TTCGAGAGTGAAGGAGTTCTGTAATCACCAACAAAAA-ACATTAAAGAGGCTATTGGAGT  9362
+
+Query  10199  CAGGCCACTTGTGCCACGGCTTGAGCAAACCGTGC  10233
+              |||||||||||||||||||||||||||||||||||
+Sbjct  9363   CAGGCCACTTGTGCCACGGCTTGAGCAAACCGTGC  9397
+
+Why needed 
+
+How it works
+* split a sequence into kmers (word size) (11 for nt)
+* scan each sequence for that "word" . . . score along the way
+* also PSI-blast
+* NT, protein, etc. . . . blastp, blastn, blastx
+
+It's slow . . . 
+
+Time Complexity
+===============
+Large N (NCBI genbank plot)
+
+What Big O means        
+Big O plot
+
+
+Blast is O(MN), where M=length of query sequence, N= size of database.  
+
+But speed is becoming more important. (high throughput & cheaper sequencing; clinical application)
+And things are just going to get worse. 
+
+So what do?
+
+
+Text Search 
+===========
+
+duckduckgo example
+
+phrase matching: match chunks of words together
+
+Allows missing words . . . a certain number of mismatches 
+Sort of like hamming distance, or mismatches in an alignment?
+
+How does it work?
+
+You'll never match a whole web page, so don't search for whole web page.
+(BLAST essentially looks at every web page individually, looking for matches. That's slow.)
+
+Want to match phrases/words
+
+
+inverted index: Mapping from pieces -> whole
+       
+How it is in text search
+
+How it is in BLAST  (kmers)
+
+kmers also store locality information (make sure the "words" are nearby). Allow reversed sequences
+
+it turns out this is very fast
+
+Applications
+============
+ORF-filter . . . filter out junk
+(a lot of people use blastx)
+six-frame translation, then query all options
+faster clinical applications
+simplifies pipelines
+bonus: limit your search to certain metadata
+currently could replace blastp/blastx, Eventually will accomadate DNA  (blastn)
+
+
+
+SciPy
+=====
+
+
+Qiita
+
+Emperor:  http://emperor.microbio.me/master/make_emperor/emperor_output/index.html
+
+
+Scientific Python packages on mobile OS
+
+holowviews example?
+a lot of machine learning there
+
+
+Alzheimer’s disease (AD) is the most common neurodegenerative dementia and a major public health issue. A non-invasive MRI based biomarker of disease progression would greatly aid therapy evaluation. We used a variety of Python libraries to quantify tissue structure and composition from brain MR images. Our image analysis method achieved an accuracy of 95% in differentiating between normal and AD groups. We believe our new analysis method could improve the diagnostic and predictive power of clinical trials.
+
+
+Qiita (canonically pronounced “cheetah“) is a new, free, open source platform for running microbial community analysis using QIIME and EMPeror through a browser-based GUI. We also introduce a central deployment of the system at qiita.microbio.me, where open-access is emphasized and data can be shared and used in meta-analyses incorporating any samples available on the system. We will discuss the design of the system’s backend, including data storage practices for multiomics data, metadata, results, as well as system data. Lastly we will showcase EMPeror in a real-world meta-analysis, and demonstrate the benefits of using standardized sample metadata.
+
+standard file formats
+james webb space telescope callibration pipeline
+* lots of corrolaries between the sciences; De Brujin graphs; gene finding + signal processing; Text search & sequence similarity
